@@ -121,12 +121,47 @@ export function estimateTokens(text: string): number {
   return Math.max(1, Math.ceil(new TextEncoder().encode(text).length / 4));
 }
 
-export const TOPUP_PRESETS = [150, 600, 3000, 15_000] as const;
+/**
+ * Top-up presets sized for the average flagship model.
+ *
+ * Flagship coefficients: GPT 6 Astra ×11.25, Claude Opus 5.5 ×20,
+ * Kimi K3.1 Pro ×11, GLM 5.3 ×1.5, DeepSeek V4 Pro ×0.2 — average ×8.79.
+ * Coding workload: 300k tokens/hour × 4 hours/day × 5 days/week = 6M
+ * base tokens per week. At that pace the average flagship needs about
+ * 52.7M tokens per week, 228M per month, 1.37B per six months and
+ * 2.74B per year. Presets below are the nearest readable amounts that
+ * cover each period (with a small buffer).
+ */
+export const TOPUP_PRESETS = [
+  {
+    rub: 600,
+    label: "Неделя",
+    hint: "Хватит примерно на неделю кодинга на топовых моделях",
+  },
+  {
+    rub: 2500,
+    label: "Месяц",
+    hint: "Хватит примерно на месяц кодинга на топовых моделях",
+  },
+  {
+    rub: 12_000,
+    label: "6 месяцев",
+    hint: "Хватит примерно на полгода кодинга на топовых моделях",
+  },
+  {
+    rub: 20_000,
+    label: "Год",
+    hint: "Хватит примерно на год кодинга на топовых моделях",
+  },
+] as const;
 
 export const TOPUP_TIERS = [
-  { rub: 600, note: "Стартовый" },
+  { rub: 600, note: "Стартовый · неделя" },
+  { rub: 2500, note: "На месяц" },
   { rub: 3000, note: "Для команды" },
+  { rub: 12_000, note: "На полгода" },
   { rub: 15_000, note: "Максимальная выгода" },
+  { rub: 20_000, note: "На год" },
 ] as const;
 
 export const WELCOME_TOKENS = Number(process.env.WELCOME_TOKENS ?? 5_000_000);

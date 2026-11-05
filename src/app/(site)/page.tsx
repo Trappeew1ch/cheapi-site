@@ -21,7 +21,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "API GPT, Claude, Kimi и DeepSeek в рублях",
   description:
-    "GPT, Claude, Kimi, GLM и DeepSeek через один API. 5 млн токенов бесплатно, оплата в рублях, без подписки. Посчитайте, на сколько часов хватит баланса.",
+    "GPT, Claude, Kimi, GLM и DeepSeek через один API. 5 млн токенов бесплатно, оплата в рублях. Посчитайте, на сколько часов хватит баланса.",
   alternates: { canonical: "/" },
 };
 
@@ -29,7 +29,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Что это за сервис?",
     answer:
-      "CheApi — один API-ключ для GPT, Claude, Kimi, GLM и DeepSeek с оплатой в рублях. Подключаете base_url, отправляете запросы и платите только за токены — без подписки и зарубежной карты.",
+      "CheApi — один API-ключ для GPT, Claude, Kimi, GLM и DeepSeek с оплатой в рублях. Подключаете base_url, отправляете запросы и платите только за токены, зарубежная карта не нужна.",
   },
   {
     question: "Что я получу бесплатно?",
@@ -97,7 +97,6 @@ export default function HomePage() {
       "Anthropic-совместимый API",
       "GPT, Claude, Kimi, GLM, DeepSeek",
       "Оплата в рублях",
-      "Без подписки",
     ],
   };
 
@@ -182,7 +181,7 @@ export default function HomePage() {
               <p className="lead mt-5 max-w-xl text-pretty">
                 GPT, Claude, Kimi, GLM и DeepSeek через один ключ. Даём 5 млн
                 токенов бесплатно — хватит примерно на 11 часов кодинга.
-                Дальше — от 25 ₽, без подписки.
+                Дальше — от 25 ₽.
               </p>
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -277,7 +276,7 @@ export default function HomePage() {
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
                 <p className="mt-2.5 text-center text-[0.6875rem] text-muted">
-                  Потом — пополнение от 25 ₽. Без подписки.
+                  Потом — пополнение от 25 ₽.
                 </p>
               </div>
             </div>

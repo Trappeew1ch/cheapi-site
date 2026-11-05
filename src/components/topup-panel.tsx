@@ -24,7 +24,7 @@ import { formatRub, formatTokens } from "@/lib/format";
 import { cn } from "@/lib/format";
 
 export function TopUpPanel({ configured }: { configured: boolean }) {
-  const [amount, setAmount] = useState(600);
+  const [amount, setAmount] = useState<number>(TOPUP_PRESETS[0].rub);
   const [custom, setCustom] = useState("");
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -79,15 +79,16 @@ export function TopUpPanel({ configured }: { configured: boolean }) {
 
       <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
         {TOPUP_PRESETS.map((preset) => {
-          const selected = !custom && amount === preset;
+          const selected = !custom && amount === preset.rub;
           return (
             <button
-              key={preset}
+              key={preset.rub}
               type="button"
               onClick={() => {
-                setAmount(preset);
+                setAmount(preset.rub);
                 setCustom("");
               }}
+              title={preset.hint}
               className={cn(
                 "rounded-xl border px-3 py-3 text-left transition-colors",
                 selected
@@ -95,14 +96,20 @@ export function TopUpPanel({ configured }: { configured: boolean }) {
                   : "border-line bg-white text-ink hover:border-line-strong hover:bg-cream",
               )}
             >
-              <div className="text-[0.95rem] font-semibold">{formatRub(preset, 0)}</div>
-              <div className={cn("mt-0.5 text-[0.6875rem]", selected ? "text-white/55" : "text-muted")}>
-                {formatTokens(tokensForRub(preset))} токенов
+              <div className="text-[0.95rem] font-semibold">{formatRub(preset.rub, 0)}</div>
+              <div className={cn("mt-0.5 text-[0.6875rem] font-medium", selected ? "text-white/70" : "text-ink-soft")}>
+                {preset.label}
+              </div>
+              <div className={cn("mt-0.5 text-[0.625rem]", selected ? "text-white/50" : "text-muted")}>
+                {formatTokens(tokensForRub(preset.rub))} токенов
               </div>
             </button>
           );
         })}
       </div>
+      <p className="mt-2 text-[0.6875rem] leading-relaxed text-muted">
+        Оценка для топовых моделей: 4 часа кодинга в день, 5 дней в неделю.
+      </p>
 
       <div className="mt-3">
         <label htmlFor="custom-amount" className="label">
