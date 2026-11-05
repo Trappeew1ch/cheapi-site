@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Mail, Send } from "lucide-react";
 import { FOOTER_NAV, SITE } from "@/lib/site";
@@ -15,21 +16,13 @@ export function SiteFooter() {
               className="inline-flex items-center gap-2.5 text-white"
               aria-label="CheApi — на главную"
             >
-              <span className="grid size-9 place-items-center rounded-[11px] bg-lime text-ink">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="size-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M6.5 5.5 12 12l-5.5 6.5" />
-                  <path d="M13 5.5 18.5 12 13 18.5" opacity=".55" />
-                </svg>
-              </span>
+              <Image
+                src="/icons/brand-tag.png"
+                alt=""
+                width={36}
+                height={36}
+                className="size-9 shrink-0 rounded-[11px] object-cover"
+              />
               <span className="text-[1.32rem] font-extrabold tracking-[-0.04em]">
                 che<span className="text-lime">api</span>
               </span>

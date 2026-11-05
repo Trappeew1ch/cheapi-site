@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/format";
 
@@ -20,22 +21,14 @@ export function Logo({
         className,
       )}
     >
-      <span className="relative grid size-9 shrink-0 place-items-center overflow-hidden rounded-[11px] bg-ink text-lime shadow-[0_6px_16px_-8px_rgba(11,31,22,0.8)] transition-transform duration-300 group-hover:-rotate-3">
-        <svg
-          viewBox="0 0 24 24"
-          className="size-5"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M6.5 5.5 12 12l-5.5 6.5" />
-          <path d="M13 5.5 18.5 12 13 18.5" opacity=".55" />
-        </svg>
-        <span className="absolute -right-2 -bottom-2 size-4 rounded-full bg-green/40 blur-[6px]" />
-      </span>
+      <Image
+        src="/icons/brand-tag.png"
+        alt=""
+        width={36}
+        height={36}
+        priority
+        className="size-9 shrink-0 rounded-[11px] object-cover shadow-[0_6px_16px_-8px_rgba(11,31,22,0.8)] transition-transform duration-300 group-hover:-rotate-3"
+      />
       {!compact && (
         <span
           className={cn(

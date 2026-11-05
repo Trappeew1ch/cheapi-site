@@ -107,7 +107,7 @@ export default function HomePage() {
     name: SITE.name,
     legalName: SITE.legalName,
     url: SITE.url,
-    logo: `${SITE.url}/icon.svg`,
+    logo: `${SITE.url}/icon.png`,
     email: SITE.email,
     sameAs: [SITE.telegramChannel],
   };
