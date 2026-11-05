@@ -22,7 +22,7 @@ export function Logo({
       )}
     >
       <Image
-        src="/icons/brand-tag.png"
+        src="/icons/brand-tag-v2.png"
         alt=""
         width={36}
         height={36}
