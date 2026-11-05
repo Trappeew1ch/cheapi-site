@@ -20,6 +20,10 @@ export const SITE = {
   telegramChannel: "https://t.me/cheapi",
   startedYear: 2026,
   locale: "ru_RU",
+  owner: {
+    name: "Рогов Константин Дмитриевич",
+    inn: "772595445988",
+  },
   legal: {
     inn: "7712345678",
     ogrn: "1237700123456",

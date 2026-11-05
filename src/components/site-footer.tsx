@@ -120,11 +120,10 @@ export function SiteFooter() {
 
           <div className="flex flex-col gap-3 text-[0.75rem] leading-relaxed text-white/35 lg:flex-row lg:items-start lg:justify-between">
             <p className="max-w-2xl">
-              © {SITE.startedYear} {SITE.legalName}. ИНН {SITE.legal.inn}, ОГРН{" "}
-              {SITE.legal.ogrn}. {SITE.legal.address}. CheApi — независимый
-              сервис доступа к моделям через API. Не является официальным
-              сайтом OpenAI, Anthropic, Z.ai или DeepSeek и не аффилирован с
-              ними.
+              © {SITE.startedYear} {SITE.owner.name}. ИНН {SITE.owner.inn}.
+              CheApi — независимый сервис доступа к моделям через API. Не
+              является официальным сайтом OpenAI, Anthropic, Z.ai или DeepSeek
+              и не аффилирован с ними.
             </p>
             <p className="shrink-0">
               {SITE.domain} ·{" "}
