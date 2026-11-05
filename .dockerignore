@@ -1,0 +1,10 @@
+node_modules
+.next
+.git
+.gitignore
+data
+.env*
+!.env.example
+npm-debug.log*
+.DS_Store
+*.tsbuildinfo

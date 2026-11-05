@@ -1,0 +1,9 @@
+Model brand icons in this directory are from LobeHub Icons:
+https://github.com/lobehub/lobe-icons
+
+Package: @lobehub/icons-static-svg
+License: MIT
+Copyright (c) LobeHub
+
+The SVGs are used unmodified. Brand names and logos belong to their
+respective owners and are used only to identify the supported models.

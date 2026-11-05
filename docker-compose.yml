@@ -1,0 +1,13 @@
+services:
+  cheapi:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.production
+    volumes:
+      - cheapi-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  cheapi-data:
