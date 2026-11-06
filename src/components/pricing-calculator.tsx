@@ -117,27 +117,18 @@ export function PricingCalculator({
           <div className="mt-3 flex flex-wrap gap-2">
             {TOPUP_PRESETS.map((preset) => (
               <button
-                key={preset.rub}
+                key={preset}
                 type="button"
-                onClick={() => setAmount(preset.rub)}
-                title={preset.hint}
+                onClick={() => setAmount(preset)}
                 className={cn(
-                  "inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-[0.8125rem] font-semibold transition-colors",
-                  safeAmount === preset.rub
+                  "rounded-full border px-3.5 py-1.5 text-[0.8125rem] font-semibold transition-colors",
+                  safeAmount === preset
                     ? "border-ink bg-ink text-white"
                     : "border-line bg-white text-ink-soft hover:border-line-strong",
                 )}
-                aria-pressed={safeAmount === preset.rub}
+                aria-pressed={safeAmount === preset}
               >
-                {preset.rub.toLocaleString("ru-RU")} ₽
-                <span
-                  className={cn(
-                    "text-[0.6875rem] font-medium",
-                    safeAmount === preset.rub ? "text-white/60" : "text-muted",
-                  )}
-                >
-                  {preset.label}
-                </span>
+                {preset.toLocaleString("ru-RU")} ₽
               </button>
             ))}
           </div>

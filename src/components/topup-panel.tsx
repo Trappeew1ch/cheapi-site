@@ -24,7 +24,7 @@ import { formatRub, formatTokens } from "@/lib/format";
 import { cn } from "@/lib/format";
 
 export function TopUpPanel({ configured }: { configured: boolean }) {
-  const [amount, setAmount] = useState<number>(TOPUP_PRESETS[0].rub);
+  const [amount, setAmount] = useState<number>(TOPUP_PRESETS[0]);
   const [custom, setCustom] = useState("");
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -77,18 +77,17 @@ export function TopUpPanel({ configured }: { configured: boolean }) {
         </span>
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+      <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
         {TOPUP_PRESETS.map((preset) => {
-          const selected = !custom && amount === preset.rub;
+          const selected = !custom && amount === preset;
           return (
             <button
-              key={preset.rub}
+              key={preset}
               type="button"
               onClick={() => {
-                setAmount(preset.rub);
+                setAmount(preset);
                 setCustom("");
               }}
-              title={preset.hint}
               className={cn(
                 "rounded-xl border px-3 py-3 text-left transition-colors",
                 selected
@@ -96,20 +95,14 @@ export function TopUpPanel({ configured }: { configured: boolean }) {
                   : "border-line bg-white text-ink hover:border-line-strong hover:bg-cream",
               )}
             >
-              <div className="text-[0.95rem] font-semibold">{formatRub(preset.rub, 0)}</div>
-              <div className={cn("mt-0.5 text-[0.6875rem] font-medium", selected ? "text-white/70" : "text-ink-soft")}>
-                {preset.label}
-              </div>
-              <div className={cn("mt-0.5 text-[0.625rem]", selected ? "text-white/50" : "text-muted")}>
-                {formatTokens(tokensForRub(preset.rub))} токенов
+              <div className="text-[0.95rem] font-semibold">{formatRub(preset, 0)}</div>
+              <div className={cn("mt-0.5 text-[0.625rem]", selected ? "text-white/55" : "text-muted")}>
+                {formatTokens(tokensForRub(preset))} токенов
               </div>
             </button>
           );
         })}
       </div>
-      <p className="mt-2 text-[0.6875rem] leading-relaxed text-muted">
-        Оценка для топовых моделей: 4 часа кодинга в день, 5 дней в неделю.
-      </p>
 
       <div className="mt-3">
         <label htmlFor="custom-amount" className="label">

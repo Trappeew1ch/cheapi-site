@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 const TIER_AMOUNTS = Array.from(
   new Set([
     25, 50, 100, 200, 300, 600, 1000, 3000, 15_000, 50_000,
-    ...TOPUP_PRESETS.map((preset) => preset.rub),
+    ...TOPUP_PRESETS,
   ]),
 ).sort((a, b) => a - b);
 
